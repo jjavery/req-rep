@@ -1,5 +1,5 @@
 {
-  "name": "req-res",
+  "name": "req-rep",
   "version": "0.1.0",
   "description": "A generic request-reply protocol for JavaScript objects",
   "main": "index.js",
