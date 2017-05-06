@@ -1,0 +1,24 @@
+{
+  "name": "req-res",
+  "version": "0.1.0",
+  "description": "A generic request-reply protocol for JavaScript objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "request",
+    "reply",
+    "req-rep",
+    "reqrep",
+    "response",
+    "req-res",
+    "reqres"
+  ],
+  "author": "James P. Javery",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
