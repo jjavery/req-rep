@@ -1,17 +1,4 @@
-# req-rep
-
-A generic request-reply protocol for JavaScript objects
-
-## Installation
-
-```sh
-$ npm install jjavery/req-rep --save
-```
-
-## Usage
-
-```javascript
-const ReqRep = require('req-rep');
+const ReqRep = require('../../');
 const WebSocket = require('ws');
 
 server();
@@ -74,4 +61,3 @@ function server() {
 
 	setTimeout(() => wss.close(), 1000);
 }
-```
