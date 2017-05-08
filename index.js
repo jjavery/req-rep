@@ -1,5 +1,17 @@
 
+/**
+ * A generic request-reply protocol for JavaScript objects
+ */
 class ReqRep {
+	/**
+	 * Creates an instance of ReqRep.
+	 * @param {Object} [options] - Optional parameters
+	 * @param {string} [options.req='req'] - Property name for request ID
+	 * @param {string} [options.rep='rep'] - Property name for reply ID
+	 * @param {bool} [options.mutate=true] - Whether to mutate req/rep objects or return new instances
+	 * @param {number} [options.timeout=0] - Request timeout in milliseconds
+	 * @param {number} [options.prune=0] - Prune interval in milliseconds
+	 */
 	constructor(options) {
 		options = options || {};
 
@@ -21,6 +33,13 @@ class ReqRep {
 		}
 	}
 
+	/**
+	 * Initialize a request
+	 *
+	 * @param {Object} req - The request to initialize
+	 * @param {function} callback - The callback to call when the request's reply is handled
+	 * @returns {Object} - The initialized request object
+	 */
 	request(req, callback) {
 		const id = ++this._id;
 
@@ -37,6 +56,13 @@ class ReqRep {
 		return req;
 	}
 
+	/**
+	 * Reply to a request
+	 *
+	 * @param {Object} req - The request to reply to
+	 * @param {Object} rep - The reply to initialize
+	 * @returns {Object} - The initialized reply object
+	 */
 	reply(req, rep) {
 		const id = req[this._reqName];
 
@@ -49,6 +75,12 @@ class ReqRep {
 		return rep;
 	}
 
+	/**
+	 * Handle a reply
+	 *
+	 * @param {Object} rep - The reply to initialize and dispatch a callback for
+	 * @returns {Object} - The initialized reply object
+	 */
 	handle(rep) {
 		const id = rep[this._repName];
 
@@ -69,6 +101,9 @@ class ReqRep {
 		return rep;
 	}
 
+	/**
+	 * Fire callbacks with timeout errors for any past-due timeouts
+	 */
 	prune() {
 		const now = Date.now();
 
